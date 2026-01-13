@@ -29,4 +29,4 @@ L'application possède deux version:
 
 ## Compilation
 
-   Compile avec **g++** version 12.2.0
+   Compile avec Linux **g++** version 12.2.0
