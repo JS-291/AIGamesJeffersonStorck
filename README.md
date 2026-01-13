@@ -7,7 +7,7 @@ L'application possède deux version:
    
    -Single -> Joueur contre Joueur
    
-   -AI -> Joeur contre AI
+   -AI -> Joueur contre AI
    
    Si le mode AI est choisi le programme demande ensuite qu'elle joueur l'utilisateur veut incarner.
 
