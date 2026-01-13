@@ -30,3 +30,4 @@ L'application possède deux version:
 ## Compilation
 
    Compile avec Linux **g++** version 12.2.0
+   g++ -O2 Game.cpp Engine.cpp Utils.cpp AI.cpp -o AI
