@@ -12,6 +12,7 @@
 #include <array>
 #include <limits>
 #include <cstdlib>
+#include <ctime>
 #include "Utils.h"
 
 class AI {
