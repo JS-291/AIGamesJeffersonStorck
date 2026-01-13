@@ -17,6 +17,7 @@
 class Engine {
 private:
     std::array<Hole, 16> board;
+    std::string move;
     int p1Score;
     int p2Score;
     bool turn;

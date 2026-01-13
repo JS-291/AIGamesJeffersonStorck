@@ -104,6 +104,7 @@ int Engine::tra(int p,bool l,Hole* h) {
 }
 
 bool Engine::play(int n,string s) {
+    move=to_string(n)+s;
     if(finished) return true;
     if((n%2==0)!= turn) return true;
     int pos=n-1;
@@ -158,10 +159,10 @@ bool Engine::isFinished(){
 
 string Engine::resultString(){
     if(limit){
-        if(p1Score!=p2Score) return "RESULT LIMIT :"+to_string(p1Score)+" "+to_string(p2Score);
+        if(p1Score!=p2Score) return "RESULT LIMIT "+move+" "+to_string(p1Score)+" "+to_string(p2Score);
         return "RESULT LIMIT DRAW";
     }else{
-        if(p1Score!=p2Score) return "RESULT "+to_string(p1Score)+" "+to_string(p2Score);
+        if(p1Score!=p2Score) return "RESULT "+move+" "+to_string(p1Score)+" "+to_string(p2Score);
         return "RESULT DRAW";
     }
 }
