@@ -22,7 +22,7 @@ L'application possède deux version:
 
 ## Format des coups
 
-   **NC** ou TNC:
+   **NC** ou **NTC**:
    
    - N -> 1-16
 
