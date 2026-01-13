@@ -25,6 +25,11 @@ L'application possède deux version:
    **NC** ou **NTC**:
    
    - N -> 1-16
+   - C -> R or B
+   - 
+## Compilation
+
+   Compile avec **g++** version 12.2.0
 
    - C -> R ou B
 
