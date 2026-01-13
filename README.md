@@ -20,6 +20,8 @@ L'application possède deux version:
 
    Pour changer l'AI à utiliser le code de **Abitre.java** doit être modifié
 
+   S'exécute avec la commande **java Arbitre**
+
 ## Format des coups
 
    **NC** ou **NTC**:
