@@ -1,11 +1,20 @@
 # AI Games Programming Jefferson Storck
+
 L'application possède deux version:
 1. **Une version basique**.
+   
    Cette version possède deux **modes**
+   
    -Single -> Joueur contre Joueur
+   
    -AI -> Joeur contre AI
+   
    Si le mode AI est choisi le programme demande ensuite qu'elle joueur l'utilisateur veut incarner.
-3. **Une version compétition**
+
+2. **Une version compétition**
+
    Cette version s'utilise avec un abitre programmé en **Java**.
+
    Elle simule une partie entre deux AI.
+
    Pour changer l'AI à utiliser le code de **Abitre.java** doit être modifié
