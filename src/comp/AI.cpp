@@ -59,7 +59,7 @@ int AI::blueMove(array<Hole,16>& b, int p){
 		seeds--;
 		if(seeds>0)pos=(pos+2)%16;
 	}
-	return capture(b,(pos-2+16)%16);
+	return capture(b,pos);
 }
 
 int AI::transparentMove(array<Hole,16>& b,int p,bool redStyle){
@@ -212,7 +212,7 @@ string AI::chooseMove(array<Hole,16> b,int p1,int p2,int d,bool t){
 int AI::eval(Node* n,bool t){
 	int res=0;
 	if(t){
-		res+=(n->p2Score-n->p1Score)*12;
+		res+=(n->p2Score-n->p1Score)*20;
 
 	    if(isStarved(true,n->board)) res-=50;
 	    if(isStarved(false,n->board)) res+=50;
@@ -245,9 +245,17 @@ int AI::eval(Node* n,bool t){
 		}
 		for(int i=1;i<16;i=i+2){
 			if(is1or2(&n->board[i])) res-=3;
+			if(n->board[i].r>0){
+				if(n->board[i].t>0) res+=2*captureChain(i,(n->board[i].r+n->board[i].t),n->board,true);
+				else res+=2*captureChain(i,(n->board[i].r),n->board,true);
+			}
+			if(n->board[i].b>0){
+				if(n->board[i].t>0) res+=2*captureChain(i,(n->board[i].b+n->board[i].t),n->board,false);
+				else res+=2*captureChain(i,(n->board[i].b),n->board,false);
+			}
 		}
 	}else{
-		res+=(n->p1Score-n->p2Score)*12;
+		res+=(n->p1Score-n->p2Score)*20;
 
 	    if(isStarved(false, n->board)) res -= 50;
 	    if(isStarved(true, n->board)) res += 50;
@@ -281,6 +289,14 @@ int AI::eval(Node* n,bool t){
 		}
 		for(int i=0;i<16;i=i+2){
 			if(is1or2(&n->board[i])) res-=3;
+			if(n->board[i].r>0){
+				if(n->board[i].t>0) res+=2*captureChain(i,(n->board[i].r+n->board[i].t),n->board,true);
+					else res+=2*captureChain(i,(n->board[i].r),n->board,true);
+			}
+			if(n->board[i].b>0){
+				if(n->board[i].t>0) res+=2*captureChain(i,(n->board[i].b+n->board[i].t),n->board,false);
+				else res+=2*captureChain(i,(n->board[i].b),n->board,false);
+			}
 		}
 	}
 	return res;
