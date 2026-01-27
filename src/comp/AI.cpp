@@ -62,6 +62,21 @@ int AI::blueMove(array<Hole,16>& b, int p){
 	return capture(b,pos);
 }
 
+int AI::blueMove(array<Hole,16>& b, Hole* h, int p){
+	int seeds=h->b;
+	if(seeds==0){
+		return capture(b,(p-1+16)%16);
+	}
+	h->b=0;
+	int pos=(p+1)%16;
+	while(seeds>0){
+		b[pos%16].b++;
+		seeds--;
+		if(seeds>0)pos=(pos+2)%16;
+	}
+	return capture(b,pos);
+}
+
 int AI::transparentMove(array<Hole,16>& b,int p,bool redStyle){
 	Hole* h=&b[p];
 	int seeds=h->t;
@@ -79,7 +94,7 @@ int AI::transparentMove(array<Hole,16>& b,int p,bool redStyle){
 		while(seeds>0){
 			b[pos%16].t++;
 			seeds--;
-			if(seeds>0)pos=(pos+2)%16;
+			pos=(pos+2)%16;
 		}
 	}
 	return pos;
@@ -111,7 +126,7 @@ Node* AI::createNode(Node* p,array<Hole,16> a,int moveType,int hole,bool turn){
 
 		case 4:
 			pos=transparentMove(board,hole,false);
-			gained=blueMove(board,pos);
+			gained=blueMove(board,&board[pos],(pos-1+16)%16);
 			res->name=to_string(hole+1)+"TB";
 			break;
 	}
