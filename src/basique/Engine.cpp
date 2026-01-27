@@ -77,6 +77,10 @@ void Engine::red(int p, Hole* h){
 }
 void Engine::blue(int p, Hole* h){
     int seeds=h->b;
+	if(seeds==0){
+		capture((p-1+16)%16);
+		return;
+	}
     int pos=p;
     h->b=0;
     pos=(pos+1)%16;
@@ -117,7 +121,7 @@ int Engine::tra(int p,bool l, Hole* h){
 	    while(seeds>0) {
 	        (&board[pos])->t++;
 	        seeds--;
-	        if(seeds>0)pos=(pos+2)%16;
+	        pos=(pos+2)%16;
 	    }
 	}
 	return pos;
@@ -175,7 +179,7 @@ bool Engine::play(int n,string s){
     		cout << "Invalid move" << endl;
     		return true;
     	}
-    	blue((((tra(pos,false,h)-1)%16)+16)%16,h);
+    	blue(((tra(pos,false,h)-1)+16)%16,h);
     }
     else {
         cout << "Invalid move" << endl;

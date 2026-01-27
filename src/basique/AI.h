@@ -28,6 +28,7 @@ class AI {
 		int capture(std::array<Hole,16>& b, int n);
 		int redMove(std::array<Hole,16>& b, int p);
 		int blueMove(std::array<Hole,16>& b, int p);
+		int blueMove(std::array<Hole,16>& b, Hole* h, int p);
 		int eval(Node* n, bool t);
 		int transparentMove(std::array<Hole,16>& b, int p, bool redStyle);
 		bool checkEndState(Node* n);
